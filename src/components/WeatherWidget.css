@@ -1,0 +1,38 @@
+
+.widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 170px;
+    height: 140px;
+}
+
+.Widget-title {
+    text-align: center;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+.green {
+    background-color: #58DB9A;
+}
+
+.pink {
+    background-color: #CC6FD7;
+}
+
+.blue {
+    background-color: #00C2E2;
+}
+
+.purple {
+    background-color: #7658F8;
+}
+
+.red {
+    background-color: #BE3C5E;
+}
+
+.yellow {
+    background-color: #ECC96F;
+}

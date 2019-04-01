@@ -32,7 +32,7 @@ export function register(config) {
     }
 
     window.addEventListener('load', () => {
-      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+      const swUrl = `${process.env.PUBLIC_URL}/sw.js`;
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
@@ -50,6 +50,21 @@ export function register(config) {
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
       }
+    });
+    
+    window.addEventListener('fetch', event => {
+      event.respondWith(
+        caches.match(event.request)
+          .then(response => {
+            if (response) {
+              console.log('[fetch] Returning from Service Worker cache: ', event.request.url);
+              return response;
+            }
+            console.log('[fetch] Returning from server: ', event.request.url);
+            return fetch(event.request);
+          }
+        )
+      );
     });
   }
 }
