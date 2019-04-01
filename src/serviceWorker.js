@@ -51,21 +51,6 @@ export function register(config) {
         registerValidSW(swUrl, config);
       }
     });
-    
-    window.addEventListener('fetch', event => {
-      event.respondWith(
-        caches.match(event.request)
-          .then(response => {
-            if (response) {
-              console.log('[fetch] Returning from Service Worker cache: ', event.request.url);
-              return response;
-            }
-            console.log('[fetch] Returning from server: ', event.request.url);
-            return fetch(event.request);
-          }
-        )
-      );
-    });
   }
 }
 
