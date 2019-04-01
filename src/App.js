@@ -15,7 +15,7 @@ class App extends Component {
 
   async componentDidMount() {
     try {
-    const res = await fetch('http://api.openweathermap.org/data/2.5/group?id=2759794,5128581,524901,1850147,3369157,2147714&units=metric&APPID=3af2bc9c401bf739b14b4c8ac4b9f876');
+    const res = await fetch('https://api.openweathermap.org/data/2.5/group?id=2759794,5128581,524901,1850147,3369157,2147714&units=metric&APPID=3af2bc9c401bf739b14b4c8ac4b9f876');
     const json = await res.json();
     const weather = json.list;
     this.setState({weather});
