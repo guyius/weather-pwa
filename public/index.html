@@ -37,20 +37,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script>
-      let deferredPrompt;
-      window.addEventListener('beforeinstallprompt', e => {        
-        e.preventDefault();        
-        deferredPrompt = e;
-        btnAdd.style.display = 'block';
-        btnAdd.addEventListener('click', (e) => {
-          btnAdd.style.display = 'none';
-          deferredPrompt.prompt();  
-          deferredPrompt.userChoice.then(choiceResult => deferredPrompt = null);
-        });
-      });
-
-      window.addEventListener('appinstalled', evt => app.logEvent('a2hs', 'installed'));
-    </script>
+   
   </body>
 </html>
